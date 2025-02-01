@@ -25,23 +25,36 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
     TokenVerifyView
 )
+from rest_framework.authentication import TokenAuthentication
+from rest_framework_simplejwt.authentication import JWTAuthentication
 
+
+security_definitions = {
+    'Bearer': {
+        'type': 'apiKey',
+        'name': 'Authorization',
+        'in': 'header',
+        'description': 'JWT-based authentication. Example: "Bearer <your_token>"',
+    },
+}
 
 schema_view = get_schema_view(
-   openapi.Info(
-      title="Task API",
-      default_version='v1',
-      description="A simple task manager API",
-      contact=openapi.Contact(email="ibraheem.areeda@gmail.com"),
-      license=openapi.License(name="BSD License"),
-   ),
-   public=True,
-   permission_classes=(permissions.AllowAny,),
+    openapi.Info(
+        title="Task API",
+        default_version='v1',
+        description="A simple task manager API",
+        contact=openapi.Contact(email="ibraheem.areeda@gmail.com"),
+        license=openapi.License(name="BSD License"),
+    ),
+    public=True,
+    permission_classes=(permissions.AllowAny,),
+    authentication_classes=(JWTAuthentication,),
 )
 
 urlpatterns = [
-    path("tasks/", include("tasks.urls")),
+    path("", include("tasks.urls")),
     path('admin/', admin.site.urls),
+    path('api-auth/', include('rest_framework.urls')),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
