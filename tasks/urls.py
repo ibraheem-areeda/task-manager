@@ -1,8 +1,6 @@
-from django.urls import path
-
-from . import views
+from django.urls import include, path
 
 urlpatterns = [
-    path("list", views.tasks_list, name="tasks list"),
-    path("form", views.tasks_form, name="tasks form"),
+    path('', include('tasks.urls.web_urls')),
+    path('api/', include('tasks.urls.api_urls')),
 ]
