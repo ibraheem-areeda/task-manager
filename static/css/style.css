@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-color: grey;
+    color: whitesmoke;
+    font-size: 3rem;
+    display: flex;
+    flex-flow: column;
+    font-family: 'Arial', sans-serif;
+}
+
+nav {
+    padding: 1rem;
+    background-color: #446cb7;
+    color: white;
+    font-size: 2.5rem;
+}
+
+main {
+    flex-grow: 1;
+    display: grid;
+    place-content: center;
+}
+
+h1,
+p {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: aquamarine;
+    padding: 1rem;
+}
+
+a:hover {
+    background-color: tomato;
+}

@@ -25,8 +25,8 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
     TokenVerifyView
 )
-from rest_framework.authentication import TokenAuthentication
 from rest_framework_simplejwt.authentication import JWTAuthentication
+from . import views
 
 
 security_definitions = {
@@ -52,6 +52,8 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
+    path('', views.homepage),
+    path('about/', views.about),
     path("", include("tasks.urls")),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
