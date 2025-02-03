@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Task List
+{% endblock %}
+
+{% block content %}
+    <section>
+    <h1>Tasks</h1>
+
+    {% for task in tasks %}
+        <article class="task">
+            <p>{{ task.title }}</p>
+            <p>{{ task.description }}</p>
+            <p>{{ task.completed }}</p>
+            <p>{{ task.created_at }}</p>
+            <p>{{ task.user}}</p>
+        </article>
+    {% endfor %}
+</section>
+{% endblock %}
