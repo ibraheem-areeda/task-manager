@@ -11,3 +11,13 @@ def user_register(request):
     else:
         form = UserCreationForm()
     return render(request, "user_register.html", { "form": form })
+
+def user_login(request):
+    if request.method == "POST":
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            login(request, form.get_user())
+            return redirect("tasks:tasks list")
+    else:
+        form = AuthenticationForm()
+    return render(request, "user_login.html", {"form": form})
