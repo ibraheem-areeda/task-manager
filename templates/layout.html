@@ -15,8 +15,9 @@
     <nav>
         <a href="/">Home</a>
         <a href="/about">About</a>
-        <a href="{% url 'tasks list' %}">Tasks</a>
-        <a href="{% url 'tasks form' %}">Create Task</a>
+        <a href="{% url 'tasks:tasks list' %}">Tasks</a>
+        <a href="{% url 'tasks:tasks form' %}">Create Task</a>
+        <a href="{% url 'users:user register' %}">sign up</a>
     </nav>
     <main>
         {% block content %}
