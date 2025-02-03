@@ -106,3 +106,7 @@ a {
     color: tomato;
     margin-left: 2rem;
 }
+
+.logoutForm{
+    display: inline;
+}

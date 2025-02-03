@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect 
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm 
-from django.contrib.auth import login
+from django.contrib.auth import login,logout
 
 def user_register(request):
     if request.method == "POST": 
@@ -21,3 +21,8 @@ def user_login(request):
     else:
         form = AuthenticationForm()
     return render(request, "user_login.html", {"form": form})
+
+def user_logout(request):
+    if request.method == "POST":
+        logout(request)
+    return redirect("tasks:tasks form")
