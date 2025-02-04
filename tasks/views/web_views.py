@@ -31,3 +31,8 @@ def tasks_update(request,id):
     else:
         form = CreateTaskForm(instance=task)
     return render(request, "task_update.html", { "form": form })
+
+def tasks_delete(request, id):
+    task = Task.objects.get(id=id)
+    task.delete()
+    return redirect("tasks:tasks list")		

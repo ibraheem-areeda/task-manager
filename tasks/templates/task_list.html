@@ -16,6 +16,7 @@
             <p>{{ task.created_at }}</p>
             <p>{{ task.user}}</p>
             <a href="{% url 'tasks:tasks update' task.id %}">Update Task</a>
+            <a href="{% url 'tasks:tasks delete' task.id %}">Task Delete</a>
         </article>
     {% endfor %}
 </section>
