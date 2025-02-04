@@ -1,21 +1,18 @@
 {% extends 'layout.html' %}
 
 {% block title %}
-    Task List
+    Task Details
 {% endblock %}
 
 {% block content %}
     <section>
-    <h1>Tasks</h1>
-
-    {% for task in tasks %}
+    <h1>Task</h1>
         <article class="taskCard">
-            <a class="taskTitle" href="{% url 'tasks:tasks details' task.id %}" >{{ task.title }}</a>
+            <p>{{ task.title }}</p>
             <p>{{ task.description }}</p>
             <p>{{ task.completed }}</p>
             <p>{{ task.created_at }}</p>
             <p>{{ task.user}}</p>
         </article>
-    {% endfor %}
 </section>
-{% endblock %} 
+{% endblock %}
