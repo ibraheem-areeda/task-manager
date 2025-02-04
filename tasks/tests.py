@@ -35,3 +35,37 @@ class ListCreateTasksTests(APITestCase):
         response = self.client.post(url,data,format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
+class TaskDetailViewTests(APITestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(username='testuser', password='testpass')
+        
+        self.task = Task.objects.create(
+            title='Test Task',
+            description='Test Description',
+            user=self.user  
+        )
+        
+    def test_retrieve_task(self):
+        url = reverse('tasks:api_task_detail', kwargs={'pk': self.task.id})
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['title'], self.task.title)
+
+    def test_update_task(self):
+        url = reverse('tasks:api_task_detail', kwargs={'pk': self.task.id})
+        data = {
+            'title': 'Updated Task',
+            'description': 'Updated Description',
+            'completed': True,
+            "user": self.user.id
+        }
+        response = self.client.put(url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_202_ACCEPTED)
+        self.task.refresh_from_db()
+        self.assertEqual(self.task.title, 'Updated Task')
+
+    def test_delete_task(self):
+        url = reverse('tasks:api_task_detail', kwargs={'pk': self.task.id})
+        response = self.client.delete(url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertFalse(Task.objects.filter(id=self.task.id).exists())
