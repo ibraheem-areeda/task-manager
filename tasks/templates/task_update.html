@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Update Task
+{% endblock %}
+
+{% block content %}
+    <h1> Update Task Form</h1>
+    <form class="form-with-validation" action="" method="post">
+        {% csrf_token %} 
+        {{ form }}
+        <button class="form-submit">Update Task</button>
+    </form>
+{% endblock %}

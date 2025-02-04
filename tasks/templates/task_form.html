@@ -9,6 +9,6 @@
     <form class="form-with-validation" action="{% url 'tasks:tasks form' %}" method="post">
         {% csrf_token %} 
         {{ form }}
-        <button class="form-submit">Add Post</button>
+        <button class="form-submit">Add Task</button>
     </form>
 {% endblock %}

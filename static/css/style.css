@@ -21,24 +21,25 @@ nav {
     font-size: 1.5rem;
 }
 
-/* main {
+main {
     flex-grow: 1;
     display: grid;
     place-content: center;
-} */
-
-h1,
-p {
-    text-align: center;
 }
 
-a {
+
+p {
+    text-align: center;
+    font-size: 1rem;
+}
+
+nav a {
     text-decoration: none;
     color: aquamarine;
     padding: 1rem;
 }
 
-a:hover {
+nav a:hover {
     background-color: tomato;
 }
 
@@ -51,20 +52,19 @@ section {
     gap: 1rem;
 }
 
+.taskCard {
+    text-decoration: none;
+    padding: 1rem;
+    max-width: 300px;
+}
+
 h1,
 h2 {
     font-size: 2.5rem;
+    text-align: center;
 }
 
-p {
-    font-size: 1rem;
-}
 
-a {
-    text-decoration: none;
-    color: aquamarine;
-    padding: 1rem;
-}
 
 
 
@@ -109,4 +109,11 @@ a {
 
 .logoutForm{
     display: inline;
+}
+
+.taskTitle {
+    font-size: 1.5rem;
+    text-align: center;
+    display: block;
+
 }

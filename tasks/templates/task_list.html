@@ -9,13 +9,15 @@
     <h1>Tasks</h1>
 
     {% for task in tasks %}
-        <article class="task">
-            <p>{{ task.title }}</p>
+        <article class="taskCard">
+            <a class="taskTitle" href="{% url 'tasks:tasks details' task.id %}" >{{ task.title }}</a>
             <p>{{ task.description }}</p>
             <p>{{ task.completed }}</p>
             <p>{{ task.created_at }}</p>
             <p>{{ task.user}}</p>
+            <a href="{% url 'tasks:tasks update' task.id %}">Update Task</a>
+            <a href="{% url 'tasks:tasks delete' task.id %}">Task Delete</a>
         </article>
     {% endfor %}
 </section>
-{% endblock %}
+{% endblock %} 
