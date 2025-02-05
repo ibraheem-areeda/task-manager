@@ -16,7 +16,7 @@ def tasks_form(request):
         form = CreateTaskForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("tasks:tasks list")
+            return redirect("tasks:tasks_list")
     else:
         form = CreateTaskForm()
     return render(request, "task_form.html",{ "form": form })
@@ -27,7 +27,7 @@ def tasks_update(request,id):
         form = CreateTaskForm(request.POST, instance=task)
         if form.is_valid():
             form.save()
-            return redirect("tasks:tasks list")
+            return redirect("tasks:tasks_list")
     else:
         form = CreateTaskForm(instance=task)
     return render(request, "task_update.html", { "form": form })
@@ -35,4 +35,4 @@ def tasks_update(request,id):
 def tasks_delete(request, id):
     task = Task.objects.get(id=id)
     task.delete()
-    return redirect("tasks:tasks list")		
+    return redirect("tasks:tasks_list")		

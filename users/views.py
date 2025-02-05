@@ -7,7 +7,7 @@ def user_register(request):
         form = UserCreationForm(request.POST) 
         if form.is_valid(): 
             login(request, form.save())
-            return redirect("tasks:tasks list")
+            return redirect("tasks:tasks_list")
     else:
         form = UserCreationForm()
     return render(request, "user_register.html", { "form": form })
@@ -17,7 +17,7 @@ def user_login(request):
         form = AuthenticationForm(data=request.POST)
         if form.is_valid():
             login(request, form.get_user())
-            return redirect("tasks:tasks list")
+            return redirect("tasks:tasks_list")
     else:
         form = AuthenticationForm()
     return render(request, "user_login.html", {"form": form})
