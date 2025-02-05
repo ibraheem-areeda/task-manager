@@ -1,10 +1,21 @@
-{% extends 'layout.html' %}
+{% extends 'layout.html' %}  
 
 {% block title %}
     Home
 {% endblock %}
 
 {% block content %}
-    <h1>Home</h1>
-    <p>Check out my <a href="/about">About</a> page.</p>
+    <h1>Welcome to Task Manager</h1>
+    <p>Simplify teamwork and boost productivity with our intuitive task management system.</p>
+
+    <h2>Key Features</h2>
+    <ul>
+        <li> Create and assign tasks effortlessly.</li>
+        <li> Set priorities and deadlines.</li>
+        <li> Track progress in real time.</li>
+        <li> Get instant notifications on updates.</li>
+    </ul>
+
+    <p>Ready to get started? <a href={% url 'tasks:tasks form' %}>Go to create task</a></p>
+    <p>Want to know more? Visit our <a href="/about">About</a> page.</p>
 {% endblock %}

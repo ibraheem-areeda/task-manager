@@ -9,15 +9,23 @@
     <h1>Tasks</h1>
 
     {% for task in tasks %}
-        <article class="taskCard">
-            <a class="taskTitle" href="{% url 'tasks:tasks details' task.id %}" >{{ task.title }}</a>
-            <p>{{ task.description }}</p>
-            <p>{{ task.completed }}</p>
-            <p>{{ task.created_at }}</p>
-            <p>{{ task.user}}</p>
-            <a href="{% url 'tasks:tasks update' task.id %}">Update Task</a>
-            <a href="{% url 'tasks:tasks delete' task.id %}">Task Delete</a>
-        </article>
+        <a class="wrapper" href="{% url 'tasks:tasks details' task.id %}">
+        <div class="task-card">
+            <div class="task-card-header">
+              <h3 class="task-title">{{ task.title }}</h3>
+            </div>
+            <div class="task-card-body">
+              <p>{{ task.description }}</p>
+            </div>
+                <p>Assignee: {{ task.user.username }}</p>
+                <p>Status: {% if task.completed %}Completed{% else %}Pending{% endif %}</p>
+              <div class="task-due-date">
+                 Created At: {{ task.created_at|date:"M d, Y H:i" }}
+                <a href="{% url 'tasks:tasks update' task.id %}">Update Task</a>
+                <a href="{% url 'tasks:tasks delete' task.id %}">Task Delete</a>
+              </div>
+          </div>
+        </a>
     {% endfor %}
 </section>
 {% endblock %} 

@@ -5,14 +5,33 @@
 {% endblock %}
 
 {% block content %}
-    <section>
-    <h1>Task</h1>
-        <article class="taskCard">
-            <p>{{ task.title }}</p>
-            <p>{{ task.description }}</p>
-            <p>{{ task.completed }}</p>
-            <p>{{ task.created_at }}</p>
-            <p>{{ task.user}}</p>
-        </article>
+<section class="task-detail-container">
+    <h1 class="text-center">Task Details</h1>
+    <div class="task-card">
+        <div class="task-card-header">
+            <h2 class="task-title">{{ task.title }}</h2>
+        </div>
+        <div class="task-card-body">
+            <p class="task-description">{{ task.description }}</p>
+            <div>
+                <div>
+                    <span>Created:</span>
+                    <span>{{ task.created_at|date:"M d, Y H:i" }}</span>
+                </div>
+                <div>
+                    <span>Status:</span>
+                    <span>
+                        {% if task.completed %}Completed{% else %}Pending{% endif %}
+                    </span>
+                </div>
+                <div>
+                    <span>Assignee:</span>
+                    <span>{{ task.user.username }}</span>
+                </div>
+                <a href="{% url 'tasks:tasks update' task.id %}">Update Task</a>
+                <a href="{% url 'tasks:tasks delete' task.id %}">Task Delete</a>
+            </div>
+        </div>
+    </div>
 </section>
 {% endblock %}

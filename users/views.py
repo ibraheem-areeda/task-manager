@@ -25,4 +25,4 @@ def user_login(request):
 def user_logout(request):
     if request.method == "POST":
         logout(request)
-    return redirect("tasks:tasks form")
+    return redirect("/")
