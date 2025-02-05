@@ -23,12 +23,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '#^zg(6ae*vha8-k5=16$q7obz)e@!b-9mh4-5l8$$8m*6v1+28'
 
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE= True
-SECURE_SSL_REDIRECT = True
-SECURE_HSTS_SECONDS = 60
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_PRELOAD = True
+# user these in production environment 
+
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE= True
+# SECURE_SSL_REDIRECT = True
+# SECURE_HSTS_SECONDS = 60
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+# SECURE_HSTS_PRELOAD = True
+# DEBUG = False
 
 
 
@@ -36,7 +39,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
 
