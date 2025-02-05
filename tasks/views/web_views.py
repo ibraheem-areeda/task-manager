@@ -1,8 +1,9 @@
 from django.shortcuts import redirect, render
 from ..models import Task
 from ..forms import CreateTaskForm
+from django.contrib.auth.decorators import login_required
 
-
+@login_required(login_url='users:user_login')
 def tasks_list(request):
     tasks = Task.objects.all().order_by("-created_at")
     return render(request, "task_list.html", {"tasks": tasks})
