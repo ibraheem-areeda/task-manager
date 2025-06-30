@@ -1,5 +1,5 @@
 # Task Manager  
-A simple, deployment-ready Task Management application using Django, Django REST Framework (DRF), and JWT authentication.  
+A simple, deployment-ready Task Management application using Django, Django REST Framework (DRF), and JWT Authentication.  
 
 ## Setup Instructions  
 
@@ -17,7 +17,7 @@ A simple, deployment-ready Task Management application using Django, Django REST
 
 5. Run the following command in your shell to create a superuser:  
     ```sh
-    docker-compose exec web python manage.py createsuperuser
+    docker-compose exec web python manage.py createsuperuser 
 
 6. Open your web browser and go to the following URL to access the project on your local machine:  
    **[http://localhost:8000/](http://localhost:8000/)**
